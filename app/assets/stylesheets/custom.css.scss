@@ -11,9 +11,16 @@
 	.container-fluid {
 	}
 	.navbar-brand {
-		font-size: 24px;
+		color: black;
+		font-size: 28px;
+		font-weight: bold;
 		font-family: 'Rock Salt', cursive;
+		text-shadow: 1px 0 0 grey, -1px 0 0 grey, 0 1px 0 grey, 0 -1px 0 grey, 1px 1px grey, -1px -1px  0 grey, 1px -1px  0 grey, -1px 1px  0 grey,
 	}
+}
+
+.container-fluid {
+	padding: 10px 120px;
 }
 body {
 	background-image: url("seamless_paper_texture.png");
