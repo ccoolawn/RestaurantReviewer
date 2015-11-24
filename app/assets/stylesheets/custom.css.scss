@@ -1,0 +1,20 @@
+.jumbotron {
+	background-color: #ECDAAA;
+	opacity: 0.5;
+	border: 2px solid #A27C37;
+	h2 {
+		color: #311D01;
+		font-weight: bold;
+	}
+}
+.navbar-inverse {
+	.container-fluid {
+	}
+	.navbar-brand {
+		font-size: 24px;
+		font-family: 'Rock Salt', cursive;
+	}
+}
+body {
+	background-image: url("seamless_paper_texture.png");
+}
