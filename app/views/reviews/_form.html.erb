@@ -1,25 +1,30 @@
 <%= form_for([@restaurant, @review]) do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+	<% if @review.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @review.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="form-group">
-    <%= f.label :rating %>
-    <%= f.number_field :rating, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :comment %>
-    <%= f.text_area :comment, class: "form-control" %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-default" %>
-  </div>
+	<div id="star-rating"></div>
+	<div class="form-group">
+		<%= f.label :comment %>
+		<%= f.text_area :comment, class: "form-control" %>
+	</div>
+	<div class="actions">
+		<%= f.submit class: "btn btn-default" %>
+	</div>
 <% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
+<script>
+	$('#star-rating').raty({
+		path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/images',
+		scoreName: 'review[rating]'
+	});
+</script>
