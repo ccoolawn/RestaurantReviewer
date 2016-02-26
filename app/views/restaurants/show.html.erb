@@ -1,7 +1,16 @@
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
+<script>
+	$('.star-rating').raty({
+		path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/images',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}
+	});
+</script>
 <%= image_tag @restaurant.image_url %>
 <div class="row">
-	<div class="col-md-3">
+	<div id="restinfo" class="col-md-3">
 		<h2>
 			<%= @restaurant.name %>
 		</h2>
@@ -23,7 +32,7 @@
 			<%= link_to @restaurant.website, @restaurant.website %>
 		</p>
 
-		<%= link_to 'Write a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary btn-xs" %>
+		<%= link_to 'Write a review', new_restaurant_review_path(@restaurant), class: "btn btn-default btn-xs" %>
 
 		<br>
 		<br>
@@ -36,7 +45,7 @@
 			&q=<%= @restaurant.address.parameterize %>&zoom=18" >
 		</iframe>
 	</div>
-	<div class="col-md-9">
+	<div id="review" class="col-md-9">
 		<% if @reviews.blank? %>
 			<h3>No reviews yet. Will you be the first?</h3>
 		<% else %>
@@ -77,14 +86,3 @@
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-default btn-xs" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-default btn-xs" %>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
-<script>
-	$('.star-rating').raty({
-		path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/images',
-		readOnly: true,
-		score: function() {
-			return $(this).attr('data-score');
-		}
-	});
-</script>
